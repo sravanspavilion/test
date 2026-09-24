@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Icon, type IconName } from "@/components/ui/icons";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
@@ -34,22 +35,42 @@ export function FutureMobility() {
       </div>
 
       <div className="container-site relative">
-        <div className="grid items-end gap-8 lg:grid-cols-[1fr_1.2fr]">
-          <SectionHeader
-            eyebrow="Electric future"
-            title="Pulse EV charging, done right"
-            description="High-speed charging built around the way you actually travel — city, corridor or commercial route."
-            className="text-white [&_h2]:text-white [&_p]:text-slate-300"
-          />
-          <Button
-            href="/locate"
-            variant="accent"
-            size="lg"
-            icon="ev"
-            className="w-fit"
+        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <SectionHeader
+              eyebrow="Electric future"
+              title="Pulse EV charging, done right"
+              description="High-speed charging built around the way you actually travel — city, corridor or commercial route."
+              className="text-white [&_h2]:text-white [&_p]:text-slate-300"
+            />
+            <Button
+              href="/locate"
+              variant="accent"
+              size="lg"
+              icon="ev"
+              className="mt-8 w-fit"
+            >
+              Find charging near me
+            </Button>
+          </div>
+
+          <figure
+            className="relative hidden h-72 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/30 lg:block"
+            aria-hidden="true"
           >
-            Find charging near me
-          </Button>
+            <Image
+              src="/images/petrol-pump.avif"
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 40vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-brand-950/10 to-transparent" />
+            <figcaption className="absolute bottom-4 left-5 right-5 flex items-center gap-2 text-sm font-semibold text-white">
+              <Icon name="check-circle" className="size-4 text-accent-400" />
+              Pulse fast chargers at 500+ stations across India
+            </figcaption>
+          </figure>
         </div>
 
         <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

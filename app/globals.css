@@ -6,27 +6,27 @@
    ============================================================ */
 
 :root {
-  /* Base */
-  --background: #f7f9fc;
+  /* Base — white & green */
+  --background: #ffffff;
   --foreground: #0b1220;
   --surface: #ffffff;
   --muted: #5b6779;
-  --border: #e3e8f0;
+  --border: #e5ede7;
 
-  /* Brand — deep mobility blue */
-  --brand-50: #eef5ff;
-  --brand-100: #dbe9fe;
-  --brand-200: #bfd6fe;
-  --brand-300: #93b8fd;
-  --brand-400: #6092fa;
-  --brand-500: #3b6df6;
-  --brand-600: #2649eb;
-  --brand-700: #1e36d8;
-  --brand-800: #1f2daf;
-  --brand-900: #1e2a8a;
-  --brand-950: #10175b;
+  /* Brand — Jio-bp green */
+  --brand-50: #f0fdf4;
+  --brand-100: #dcfce7;
+  --brand-200: #bbf7d0;
+  --brand-300: #86efac;
+  --brand-400: #4ade80;
+  --brand-500: #22c55e;
+  --brand-600: #16a34a;
+  --brand-700: #15803d;
+  --brand-800: #166534;
+  --brand-900: #14532d;
+  --brand-950: #052e16;
 
-  /* Accent — energy amber */
+  /* Accent — energy amber (Jio-bp yellow) */
   --accent-50: #fffbeb;
   --accent-100: #fef3c7;
   --accent-200: #fde68a;
