@@ -7,7 +7,6 @@ import { NAV_LINKS, SUPPORT_PHONE } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Brand } from "@/components/layout/Brand";
 import { Icon } from "@/components/ui/icons";
-import { Button } from "@/components/ui/Button";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -78,21 +77,21 @@ export function Header() {
       </div>
 
       {/* Main bar */}
-      <div className="container-site flex h-16 items-center justify-between gap-4">
+      <div className="container-site grid h-16 grid-cols-[1fr_auto] items-center gap-4 xl:grid-cols-[auto_minmax(0,1fr)_auto]">
         <Brand />
 
         <nav aria-label="Primary" className="hidden xl:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-6">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
+                    "rounded-lg px-2 py-2 whitespace-nowrap text-[0.8125rem] font-semibold leading-none transition-colors",
                     isActive(link.href)
                       ? "text-brand-700"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-brand-700"
+                      : "text-slate-700 hover:bg-slate-50/70 hover:text-brand-700"
                   )}
                 >
                   {link.label}
@@ -101,19 +100,6 @@ export function Header() {
             ))}
           </ul>
         </nav>
-
-        <div className="hidden items-center gap-2 xl:flex">
-          <a
-            href="/locate"
-            className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 text-sm font-semibold text-slate-700 transition-colors hover:border-brand-300 hover:text-brand-700"
-          >
-            <Icon name="map-pin" className="size-4 text-brand-600" />
-            Locate a station
-          </a>
-          <Button href="/contact" variant="primary" size="sm" iconRight="arrow-right">
-            Get in touch
-          </Button>
-        </div>
 
         {/* Mobile menu toggle */}
         <button
@@ -126,6 +112,9 @@ export function Header() {
         >
           <Icon name={menuOpen ? "close" : "menu"} />
         </button>
+
+        {/* Spacer keeps the nav centered on desktop now that the header CTAs are removed */}
+        <div aria-hidden="true" className="hidden xl:block" />
       </div>
 
       {/* Mobile menu */}
@@ -151,15 +140,9 @@ export function Header() {
               ))}
             </ul>
             <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-              <Button href="/locate" variant="secondary" fullWidth icon="map-pin">
-                Locate a station
-              </Button>
-              <Button href="/contact" fullWidth iconRight="arrow-right">
-                Get in touch
-              </Button>
               <a
                 href="/careers"
-                className="mt-2 text-center text-sm font-semibold text-slate-600 hover:text-brand-700"
+                className="text-center text-sm font-semibold text-slate-600 hover:text-brand-700"
               >
                 Careers
               </a>

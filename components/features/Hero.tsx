@@ -20,9 +20,9 @@ const networkRows = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white text-slate-900">
-      {/* Background image — Jio — kept visible on the right with a softer
-          white-to-transparent overlay so the image itself is highlighted
-          while the copy stays readable on the left */}
+      {/* Background image — Jio — shown at higher opacity. The overlay fades
+          to transparent on the right so the image really pops, while the
+          left keeps enough white for the copy to stay readable */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <Image
           src="/images/jio-front.webp"
@@ -32,8 +32,8 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75 to-white/5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/55 to-white/0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-white/45" />
       </div>
 
       {/* Ambient green glows — pure CSS accents */}
@@ -42,7 +42,7 @@ export function Hero() {
         <div className="absolute bottom-[-30%] left-[-10%] size-[30rem] rounded-full bg-brand-200/40 blur-3xl" />
       </div>
 
-      <div className="container-site relative grid items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
+      <div className="container-site relative grid items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:pb-16 lg:pt-28">
         <div>
           <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/85 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-700 shadow-sm backdrop-blur">
             <Icon name="spark" className="size-3.5" />
@@ -85,9 +85,9 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* Visual panel — frosted white card over the background image */}
-        <div className="relative hidden lg:block" aria-hidden="true">
-          <div className="rounded-3xl border border-white/60 bg-white/85 p-8 shadow-xl shadow-brand-900/10 backdrop-blur">
+        {/* Right column — network panel in a single line, CTAs just below */}
+        <div className="relative hidden self-end lg:block">
+          <div className="rounded-3xl border border-white/60 bg-white/85 p-5 shadow-xl shadow-brand-900/10 backdrop-blur">
             <div className="flex items-center justify-between">
               <p className="text-sm font-bold uppercase tracking-widest text-slate-500">
                 Today&apos;s network
@@ -97,25 +97,33 @@ export function Hero() {
                 Live
               </span>
             </div>
-            <div className="mt-6 space-y-3">
+            <div className="mt-4 grid grid-cols-5 gap-2">
               {networkRows.map((row) => (
                 <div
                   key={row.label}
-                  className="flex items-center gap-4 rounded-2xl border border-brand-100 bg-white/85 px-4 py-3"
+                  className="flex flex-col items-center gap-1.5 rounded-xl border border-brand-100 bg-white/85 px-1 py-2.5 text-center"
                 >
-                  <span className="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand-600">
-                    <Icon name={row.icon} className="size-5" />
+                  <span className="grid size-8 place-items-center rounded-lg bg-brand-50 text-brand-600">
+                    <Icon name={row.icon} className="size-4" />
                   </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-bold text-slate-800">
-                      {row.label}
-                    </p>
-                    <p className="text-xs text-slate-500">{row.note}</p>
-                  </div>
-                  <Icon name="check-circle" className="size-5 text-brand-500" />
+                  <p className="text-[0.7rem] font-bold leading-tight text-slate-800">
+                    {row.label}
+                  </p>
+                  <p className="text-[0.62rem] leading-tight text-slate-500">
+                    {row.note}
+                  </p>
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="mt-4 flex justify-end gap-2">
+            <Button href="/locate" variant="secondary" size="sm" icon="map-pin">
+              Locate a station
+            </Button>
+            <Button href="/contact" size="sm" iconRight="arrow-right">
+              Get in touch
+            </Button>
           </div>
         </div>
       </div>
