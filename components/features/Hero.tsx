@@ -20,19 +20,20 @@ const networkRows = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white text-slate-900">
-      {/* Background image — Jio-bp — softened with a white-to-transparent overlay
-          so the copy sits on a clean white field while the image still reads */}
+      {/* Background image — Jio — kept visible on the right with a softer
+          white-to-transparent overlay so the image itself is highlighted
+          while the copy stays readable on the left */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <Image
-          src="/images/hero-bg.avif"
+          src="/images/jio-front.webp"
           alt=""
           fill
           priority
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75 to-white/5" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60" />
       </div>
 
       {/* Ambient green glows — pure CSS accents */}
