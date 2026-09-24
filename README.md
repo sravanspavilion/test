@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Energy Mobility — Frontend (Next.js 16)
 
-## Getting Started
+Enterprise-grade energy & mobility corporate website frontend. Original
+implementation modeled only on the *public information architecture* of a
+reference energy retailer — no code, assets or text copied.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + React 19 + TypeScript (strict)
+- **Tailwind CSS v4** — design tokens in `app/globals.css` (`@theme`)
+- No external UI or icon libraries — all icons and visuals are original SVG/CSS
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # defaults = demo mode; no changes needed to run
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production build:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Demo mode vs live API
 
-## Learn More
+The service layer (`services/*`) reads `NEXT_PUBLIC_API_URL`:
 
-To learn more about Next.js, take a look at the following resources:
+- **Empty** → the site runs standalone on clearly-labelled fictional seed data in
+  `lib/data/*` (stations, products, news, FAQs, careers).
+- **Set** (e.g. `http://localhost:4000`) → the same service functions call the
+  NestJS API at `/api/v1/...` with `{success, message, code}` responses, so the
+  swap is transparent to pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Map provider is pluggable via `NEXT_PUBLIC_MAP_PROVIDER` (`osm` | `google` |
+`mapbox`); station cards already link to turn-by-turn directions for the
+configured provider.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages
 
-## Deploy on Vercel
+| Route | Description |
+| --- | --- |
+| `/` | Homepage (hero, services, prices, EV, business, news, FAQs, CTA) |
+| `/products-and-services` | Portfolio hub grouped by category |
+| `/products-and-services/[slug]` | Product/service detail |
+| `/locate` | Station locator — search, filters, geolocation, directions |
+| `/stations/[slug]` | Station detail (services, prices, hours, contact) |
+| `/news` · `/news/[slug]` | Newsroom list & article |
+| `/faqs` | FAQ accordions by category |
+| `/contact` | Contact + callback request forms |
+| `/about` · `/partnerships` · `/rewards` · `/careers` | Corporate pages |
+| `/legal/privacy` | Demo privacy policy |
+| `/admin/login` · `/admin` | Demo admin (localStorage session, no real auth) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/            routes, layouts, metadata, sitemap, robots, error/loading/404
+components/
+  layout/       header (client), footer, brand
+  ui/           icons, button, card, form controls, accordion, tabs, etc.
+  features/     hero, service grid, station locator, news, faqs, lead forms
+lib/            config, utils, seo helpers, demo auth, demo data
+services/       data-access layer (API or mock fallback)
+types/          shared domain types mirroring the backend DTOs
+```
+
+## Notes
+
+- All seed content is fictional and labelled as demo data.
+- No real credentials anywhere; the admin screen is a simulated flow until the
+  backend (NestJS + JWT/RBAC) lands in later phases.
+- Accessibility: skip link, focus-visible rings, aria labels, reduced-motion
+  support, semantic landmarks throughout.
