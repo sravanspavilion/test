@@ -3,8 +3,9 @@ import { cn } from "@/lib/utils";
 import { SITE_NAME } from "@/lib/config";
 
 /**
- * ENERGY MOBILITY brand mark — original placeholder logo.
- * Swap for the real logo later; colors follow design tokens.
+ * JIO ENERGY MOBILITY brand mark.
+ * "Jio" is the highlighted word; "Energy Mobility" sits below as the
+ * descriptor. Colors follow the design tokens (white & green theme).
  */
 export function BrandMark({ className }: { className?: string }) {
   return (
@@ -48,19 +49,19 @@ export function Brand({
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "text-base font-extrabold tracking-tight",
-            light ? "text-white" : "text-slate-900"
+            "text-lg font-extrabold tracking-tight",
+            light ? "text-white" : "text-brand-600"
           )}
         >
-          {SITE_NAME.split(" ")[0]}
+          Jio
         </span>
         <span
           className={cn(
             "text-[0.65rem] font-bold uppercase tracking-[0.22em]",
-            light ? "text-accent-400" : "text-brand-700"
+            light ? "text-accent-400" : "text-slate-500"
           )}
         >
-          {SITE_NAME.split(" ").slice(1).join(" ")}
+          Energy Mobility
         </span>
       </span>
     </Link>

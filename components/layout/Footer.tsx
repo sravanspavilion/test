@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Brand } from "@/components/layout/Brand";
 import { Icon, type IconName } from "@/components/ui/icons";
-import { SUPPORT_EMAIL, SUPPORT_PHONE, SITE_TAGLINE } from "@/lib/config";
+import { SUPPORT_EMAIL, SUPPORT_PHONE, SITE_NAME, SITE_TAGLINE } from "@/lib/config";
 
 const columns: Array<{
   title: string;
@@ -50,7 +50,7 @@ export function Footer() {
     <footer className="border-t border-slate-800 bg-brand-950 text-slate-300">
       <div className="container-site grid gap-12 py-14 lg:grid-cols-[1.2fr_2fr]">
         <div>
-          <Brand />
+          <Brand light />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
             {SITE_TAGLINE}
           </p>
@@ -120,7 +120,7 @@ export function Footer() {
 
       <div className="border-t border-slate-800">
         <div className="container-site flex flex-col items-center justify-between gap-3 py-5 text-xs text-slate-500 sm:flex-row">
-          <p>© {new Date().getFullYear()} Energy Mobility. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
           <p className="text-slate-600">
             Demo deliverable — content is fictional placeholder data.
           </p>

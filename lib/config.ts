@@ -4,12 +4,12 @@
  * Never commit real secrets — see .env.example.
  */
 
-export const SITE_NAME = "Energy Mobility";
-export const SITE_SHORT_NAME = "EM";
+export const SITE_NAME = "Jio Energy Mobility";
+export const SITE_SHORT_NAME = "JEM";
 export const SITE_TAGLINE =
   "Energy and mobility for every journey — fuel, EV charging, CNG, cafés and more.";
 export const SITE_DESCRIPTION =
-  "Energy Mobility is an enterprise-grade energy and mobility network — premium fuel, fast EV charging, CNG, doorstep fuel delivery, fleet solutions and convenience services across India.";
+  "Jio Energy Mobility is an enterprise-grade energy and mobility network — premium fuel, fast EV charging, CNG, doorstep fuel delivery, fleet solutions and convenience services across India.";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
