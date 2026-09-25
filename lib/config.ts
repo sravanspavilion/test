@@ -21,6 +21,9 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 export const MAP_PROVIDER = process.env.NEXT_PUBLIC_MAP_PROVIDER ?? "osm";
 export const MAP_API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY ?? "";
 
+/** Microsoft Clarity project ID — empty disables Clarity tracking. */
+export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID ?? "";
+
 export const SUPPORT_PHONE =
   process.env.NEXT_PUBLIC_SUPPORT_PHONE ?? "1800-000-0000";
 export const SUPPORT_EMAIL =

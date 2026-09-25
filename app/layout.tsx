@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Clarity } from "@/components/layout/Clarity";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/config";
 
 const geistSans = Geist({
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <Clarity />
       </body>
     </html>
   );

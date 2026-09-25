@@ -2,6 +2,22 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "description": "Enterprise-grade energy & mobility corporate website frontend. Original implementation modeled only on the *public information architecture* of a reference energy retailer — no code, assets or text copied.",
+  "homepage": "https://github.com/sravanspavilion/test#readme",
+  "bugs": {
+    "url": "https://github.com/sravanspavilion/test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sravanspavilion/test.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +25,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.2",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8"
